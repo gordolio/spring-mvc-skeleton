@@ -7,5 +7,7 @@
 
 	<include file="com/xpanxion/skeleton/db/changelog/create-test-table-with-data.xml"/>
 	<include file="com/xpanxion/skeleton/db/changelog/create-test-table-with-data-oracle.xml"/>
+    <include file="com/xpanxion/skeleton/db/changelog/create-users-table-with-data.xml"/>
+    <include file="com/xpanxion/skeleton/db/changelog/create-users-table-with-data-oracle.xml"/>
 	
 </databaseChangeLog> 
