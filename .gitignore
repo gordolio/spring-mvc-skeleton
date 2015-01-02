@@ -6,3 +6,7 @@
 .settings/
 gradle-app.setting
 /target
+
+.idea/
+*.iml
+src/main/resources/rebel*
