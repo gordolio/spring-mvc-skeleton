@@ -27,7 +27,7 @@
         </insert>
         <insert tableName="users">
             <column name="id" value="3"/>
-            <column name="username" value="testuser1"/>
+            <column name="username" value="testuser2"/>
             <!-- TODO: use some sort of hashing rather than storing the password in raw text-->
             <column name="password" value="P@$$w0rd"/>
         </insert>
