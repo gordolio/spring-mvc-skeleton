@@ -29,4 +29,13 @@
             <column name="password" value="P@$$w0rd"/>
         </insert>
     </changeSet>
+    <changeSet author="Gordon Child" id="update-users-table-data" dbms="mysql,postgresql,mssql,derby,h2,hsqldb,oracle">
+        <addColumn tableName="users">
+            <column name="salt" type="varchar(20)"/>
+        </addColumn>
+        <update tableName="users">
+            <column name="password" value="62edd1d67e790831b36fdf232968228fdddb6b7f"/>
+            <column name="salt" value="fnds0nr031rnfkldsa"/>
+        </update>
+    </changeSet>
 </databaseChangeLog>

@@ -48,4 +48,8 @@ public class UserDetailsWrapper extends UserBean implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public String getSalt() {
+        return bean.getSalt();
+    }
 }

@@ -20,11 +20,16 @@
         <csrf/>
     </security:http>
 
-    <beans:bean id="passwordEncoder" class="com.xpanxion.skeleton.security.PlainTextPasswordEncoder"/>
+    <beans:bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.MessageDigestPasswordEncoder">
+        <beans:constructor-arg type="java.lang.String" value="SHA-1"/>
+    </beans:bean>
+
+    <beans:bean id="saltSource" class="com.xpanxion.skeleton.security.UserDetailsSaltSource"/>
 
     <beans:bean id="daoAuthenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
         <beans:property name="userDetailsService" ref="userDetailsService" />
         <beans:property name="passwordEncoder" ref="passwordEncoder" />
+        <beans:property name="saltSource" ref="saltSource"/>
     </beans:bean>
 
 

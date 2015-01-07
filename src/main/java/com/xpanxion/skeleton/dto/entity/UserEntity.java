@@ -15,6 +15,7 @@ public class UserEntity {
     private long id;
     private String username;
     private String password;
+    private String salt;
 
     /**
      * Returns the ID of the entity
@@ -44,6 +45,11 @@ public class UserEntity {
         return this.password;
     }
 
+    @Column(name="salt")
+    public String getSalt() {
+        return this.salt;
+    }
+
     /**
      * Sets the id of the entity
      * @param id - the ID
@@ -66,5 +72,13 @@ public class UserEntity {
      */
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    /**
+     * Sets the salt of the entity
+     * @param salt - salt
+     */
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 }
