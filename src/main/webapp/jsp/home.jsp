@@ -4,6 +4,7 @@
 	<title>Home Page</title>
 </head>
 <body>
+<%@include file="header.jsp"%>
 <h1>Under Construction!!!</h1>
 <table>
 <c:forEach var="bean" items="${test}">

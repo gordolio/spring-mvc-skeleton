@@ -4,6 +4,7 @@
     <title>Main Page</title>
   </head>
   <body>
+  <%@include file="header.jsp"%>
     <h1>Main Page</h1>
     <h3>Links</h3>
     <ul>

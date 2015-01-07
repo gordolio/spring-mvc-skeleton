@@ -4,6 +4,7 @@
   <title>Users</title>
 </head>
 <body>
+<%@include file="header.jsp"%>
 <h1>Under Construction!!!</h1>
 <table>
   <c:forEach var="user" items="${users}">

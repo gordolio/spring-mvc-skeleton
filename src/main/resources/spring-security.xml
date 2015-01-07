@@ -11,7 +11,14 @@
 
     <security:global-method-security secured-annotations="enabled"/>
 
-    <security:http auto-config="true"/>
+    <security:http auto-config="true">
+        <form-login
+                login-page="/login"
+                default-target-url="/"
+                authentication-failure-url="/login?error"/>
+        <logout logout-success-url="/login?logout" />
+        <csrf/>
+    </security:http>
 
     <beans:bean id="passwordEncoder" class="com.xpanxion.skeleton.security.PlainTextPasswordEncoder"/>
 
