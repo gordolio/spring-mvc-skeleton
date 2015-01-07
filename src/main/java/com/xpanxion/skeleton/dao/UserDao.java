@@ -14,4 +14,6 @@ public interface UserDao {
      * @return all of the user entities.
      */
     List<UserEntity> getAllItems();
+
+    UserEntity getUserByUsername(String username);
 }

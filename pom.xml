@@ -8,6 +8,9 @@
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>Spring MVC Skeleton</name>
+	<properties>
+		<spring.version>3.2.4.RELEASE</spring.version>
+	</properties>
 
 	<build>
 		<plugins>
@@ -38,13 +41,25 @@
 		<dependency>
 			<artifactId>spring-webmvc</artifactId>
 			<groupId>org.springframework</groupId>
-			<version>3.2.4.RELEASE</version>
+			<version>${spring.version}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<artifactId>spring-orm</artifactId>
 			<groupId>org.springframework</groupId>
-			<version>3.2.4.RELEASE</version>
+			<version>${spring.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<artifactId>spring-security-web</artifactId>
+			<groupId>org.springframework.security</groupId>
+			<version>${spring.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<artifactId>spring-security-config</artifactId>
+			<groupId>org.springframework.security</groupId>
+			<version>${spring.version}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>

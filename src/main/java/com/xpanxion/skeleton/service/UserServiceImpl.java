@@ -25,12 +25,24 @@ public class UserServiceImpl implements UserService {
         List<UserEntity> userItems = this.userDao.getAllItems();
         List<UserBean> output = new ArrayList<>();
         for(UserEntity entity : userItems) {
-            UserBean bean = new UserBean();
-            BeanUtils.copyProperties(entity, bean);
-            output.add(bean);
+            output.add(convertEntityToBean(entity));
         }
 
         return output;
+    }
+
+    @Override
+    public UserBean getUserByUsername(String username) {
+        return convertEntityToBean(userDao.getUserByUsername(username));
+    }
+
+    private static UserBean convertEntityToBean(final UserEntity entity) {
+        if(entity == null) {
+            return null;
+        }
+        UserBean bean = new UserBean();
+        BeanUtils.copyProperties(entity, bean);
+        return bean;
     }
 
     @Resource

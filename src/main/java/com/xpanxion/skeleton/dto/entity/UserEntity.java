@@ -7,7 +7,10 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="users")
-@NamedQuery(name="users.getAll", query="from UserEntity")
+@NamedQueries({
+        @NamedQuery(name = "users.getAll", query = "from UserEntity"),
+        @NamedQuery(name = "users.getByUsername", query = "from UserEntity where lower(username)=:username")
+})
 public class UserEntity {
     private long id;
     private String username;

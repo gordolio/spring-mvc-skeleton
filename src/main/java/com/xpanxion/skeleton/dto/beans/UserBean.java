@@ -1,9 +1,11 @@
 package com.xpanxion.skeleton.dto.beans;
 
+import java.io.Serializable;
+
 /**
  * Created by gchild on 1/2/2015.
  */
-public class UserBean {
+public class UserBean implements Serializable {
 
     private long id;
 
