@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.xpanxion.skeleton.dto.entity.TestEntity;
@@ -18,6 +19,7 @@ import com.xpanxion.skeleton.dto.entity.TestEntity;
 @Repository
 public class TestDaoImpl implements TestDao {
 
+    @Autowired
     private SessionFactory sessionFactory;
 
     /* (non-Javadoc)
@@ -29,13 +31,4 @@ public class TestDaoImpl implements TestDao {
         return this.sessionFactory.getCurrentSession().getNamedQuery("test.getAll").list();
     }
 
-    /**
-     * Sets the session factory for this dao to use. 
-     * 
-     * @param factory the session factory for this dao.
-     */
-    @Resource
-    public void setSesionFactory(SessionFactory factory) {
-        this.sessionFactory = factory;
-    }
 }
