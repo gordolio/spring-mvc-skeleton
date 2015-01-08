@@ -9,7 +9,8 @@ import javax.persistence.*;
 @Table(name="users")
 @NamedQueries({
         @NamedQuery(name = "users.getAll", query = "from UserEntity"),
-        @NamedQuery(name = "users.getByUsername", query = "from UserEntity where lower(username)=:username")
+        @NamedQuery(name = "users.getByUsername", query = "from UserEntity where lower(username)=:username"),
+        @NamedQuery(name="users.getById", query="from UserEntity where id=:id")
 })
 public class UserEntity {
     private long id;

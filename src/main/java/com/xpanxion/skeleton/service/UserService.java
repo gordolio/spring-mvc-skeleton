@@ -12,4 +12,6 @@ public interface UserService {
     public List<UserBean> getUsers();
 
     public UserBean getUserByUsername(String username);
+
+    public UserBean getUserById(Integer id);
 }

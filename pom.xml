@@ -63,6 +63,12 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<groupId>org.codehaus.jackson</groupId>
+			<version>1.9.13</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
 			<artifactId>hibernate-core</artifactId>
 			<groupId>org.hibernate</groupId>
 			<version>4.2.6.Final</version>

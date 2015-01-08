@@ -39,6 +39,19 @@ public class UserDaoImpl implements UserDao {
         return null;
     }
 
+    @Override
+    public UserEntity getUserById(Integer id) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.getNamedQuery("users.getById");
+        query.setInteger("id", id);
+        Object result = query.uniqueResult();
+        UserEntity user = null;
+        if(result instanceof UserEntity) {
+            user = (UserEntity)result;
+        }
+        return user;
+    }
+
     /**
      * Sets the session factory
      * @param factory the session factory

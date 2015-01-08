@@ -2,6 +2,8 @@ package com.xpanxion.skeleton.dto.beans;
 
 import java.io.Serializable;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 /**
  * Created by gchild on 1/2/2015.
  */
@@ -11,8 +13,10 @@ public class UserBean implements Serializable {
 
     private String username;
 
+    @JsonIgnore
     private String password;
 
+    @JsonIgnore
     private String salt;
 
     public long getId() {

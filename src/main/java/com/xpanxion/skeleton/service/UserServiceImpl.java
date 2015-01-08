@@ -36,6 +36,11 @@ public class UserServiceImpl implements UserService {
         return convertEntityToBean(userDao.getUserByUsername(username));
     }
 
+    @Override
+    public UserBean getUserById(Integer id) {
+        return convertEntityToBean(userDao.getUserById(id));
+    }
+
     private static UserBean convertEntityToBean(final UserEntity entity) {
         if(entity == null) {
             return null;
