@@ -27,7 +27,13 @@ public class RestApiController {
 
     @ResponseBody
     @RequestMapping(value="/user/{id}", method={RequestMethod.GET})
-    public UserBean getUser(@PathVariable Integer id) {
+    public UserBean getUserByPath(@PathVariable Integer id) {
+        return userService.getUserById(id);
+    }
+
+    @ResponseBody
+    @RequestMapping(value="/user", method={RequestMethod.GET})
+    public UserBean getUserByParam(@RequestParam("id") Integer id) {
         return userService.getUserById(id);
     }
 }
