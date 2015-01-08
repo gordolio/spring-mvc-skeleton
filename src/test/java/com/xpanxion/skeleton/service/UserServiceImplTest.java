@@ -103,4 +103,35 @@ public class UserServiceImplTest {
         // then
         assertNull(bean);
     }
+
+    @Test
+    public void testGetUserById() {
+        // given
+        final Integer id = 1;
+
+        UserEntity entity = new UserEntity();
+        entity.setId(id);
+
+        given(userDao.getUserById(id)).willReturn(entity);
+
+        // when
+        UserBean returnVal = testee.getUserById(id);
+
+        // then
+        assertEqualsEntityAndBean(entity, returnVal);
+    }
+
+    @Test
+    public void testGetUserByInvalidId() {
+        // given
+        final Integer id = 20;
+
+        given(userDao.getUserById(id)).willReturn(null);
+
+        // when
+        UserBean returnVal = testee.getUserById(id);
+
+        // then
+        assertNull(returnVal);
+    }
 }

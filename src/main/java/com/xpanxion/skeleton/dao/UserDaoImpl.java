@@ -44,11 +44,7 @@ public class UserDaoImpl implements UserDao {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.getNamedQuery("users.getById");
         query.setInteger("id", id);
-        Object result = query.uniqueResult();
-        UserEntity user = null;
-        if(result instanceof UserEntity) {
-            user = (UserEntity)result;
-        }
+        UserEntity user = (UserEntity)query.uniqueResult();
         return user;
     }
 

@@ -17,8 +17,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 /**
  * Created by gchild on 1/5/2015.
@@ -71,6 +70,7 @@ public class UserDaoImplTest {
 
         // then
         assertEquals(user, returned);
+        verify(query).setString("username",username.toLowerCase());
     }
 
     @Test
@@ -78,6 +78,7 @@ public class UserDaoImplTest {
         // given
         Session session = mock(Session.class);
         Query query = mock(Query.class);
+        String username = "bogusUser";
 
         List<UserEntity> list = new ArrayList<>();
         given(factory.getCurrentSession()).willReturn(session);
@@ -85,10 +86,49 @@ public class UserDaoImplTest {
         given(query.list()).willReturn(list);
 
         // when
-        UserEntity user = testee.getUserByUsername("bogusUser");
+        UserEntity user = testee.getUserByUsername(username);
 
         // then
         assertNull(user);
+        verify(query).setString("username",username.toLowerCase());
+    }
+
+    @Test
+    public void testGetUserByUserId() {
+        // given
+        Session session = mock(Session.class);
+        Query query = mock(Query.class);
+
+        UserEntity user = new UserEntity();
+        user.setId(1);
+        given(factory.getCurrentSession()).willReturn(session);
+        given(session.getNamedQuery("users.getById")).willReturn(query);
+        given(query.uniqueResult()).willReturn(user);
+
+        // when
+        UserEntity returnedUser = testee.getUserById(1);
+
+        // then
+        assertEquals(user, returnedUser);
+        verify(query).setInteger("id", 1);
+    }
+
+    @Test
+    public void testGetUserByInvalidId() {
+        // given
+        Session session = mock(Session.class);
+        Query query = mock(Query.class);
+
+        given(factory.getCurrentSession()).willReturn(session);
+        given(session.getNamedQuery("users.getById")).willReturn(query);
+        given(query.uniqueResult()).willReturn(null);
+
+        // when
+        UserEntity returnedUser = testee.getUserById(10);
+
+        // then
+        assertNull(returnedUser);
+        verify(query).setInteger("id",10);
     }
 
 }
